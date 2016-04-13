@@ -2,7 +2,8 @@ weighted-inits
 ==============
 
 This program generates an infinite output of (seeded) weighted inits of a word.
-
+The intention to write this is a intra-departmental coding challenge to find
+the number of words within an undelimited string.
 ## dependencies
 
 [stack](http://haskellstack.org)
