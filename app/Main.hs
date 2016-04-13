@@ -1,8 +1,8 @@
 module Main where
 
-import           WeightedInits
-import           System.Environment
 import           Control.Monad.Random (mkStdGen)
+import           System.Environment   (getArgs)
+import           WeightedInits        (printWeightedInits)
 
 main :: IO()
 main = do
