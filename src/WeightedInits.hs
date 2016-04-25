@@ -1,5 +1,6 @@
 module WeightedInits
     ( printWeightedInits
+    , generateWeightedInits
     ) where
 
 import           Control.Monad.Random (RandomGen, next)
@@ -12,9 +13,6 @@ getTuples :: String -> [(String, Float)]
 getTuples string = zip (reverse strings) (getWeights (fromIntegral $ length strings))
   where
     strings = tail $ inits string
-
-tuples :: String -> [(String, Float)]
-tuples word = getTuples word
 
 normalizedFloat :: Int -> Float
 normalizedFloat i = fromIntegral (mod i 1000000) / 1000000.0
@@ -30,7 +28,7 @@ generateWeightedInits word g = pick:generateWeightedInits word g'
   where
     (i, g') = next g
     rnd = normalizedFloat i
-    pick = weightedPick rnd (tuples word)
+    pick = weightedPick rnd (getTuples word)
 
 printWeightedInits :: (RandomGen g) => String -> g -> IO()
 printWeightedInits word g = putStr $ concat (generateWeightedInits word g)
