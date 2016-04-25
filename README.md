@@ -14,10 +14,20 @@ the number of words within an undelimited string.
 $ stack install
 ```
 
-## usage
+## options
+
+    -h,--help                Show this help text
+    -w,--word WORD           The word to print the inits of
+    -s,--seed SEED           The seed for the random function
+    -m,--megabytes MEGABYTES Limit the output to MEGABYTES
+    
+## example
 
 following command will create a 1MB file full of seeded random inits of misssissippi.
 
 ``` sh
-$ weighted-inits "mississippi" 47 | dd of=./mississippis.txt bs=1 count=1M
+$ weighted-inits \
+  --word mississippi \
+  --seed 47 \
+  --megabytes 1 > ./mississippis.txt
 ```
