@@ -38,5 +38,5 @@ following command will create a 1MB file full of seeded random inits of misssiss
 $ weighted-inits \
   --word mississippi \
   --seed 47 \
-  --bytes 1 > ./mississippis.txt
+  --bytes 1M > ./mississippis.txt
 ```
