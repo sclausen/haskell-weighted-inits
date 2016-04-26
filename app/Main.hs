@@ -1,9 +1,10 @@
 module Main where
 
 import           Control.Monad.Random (mkStdGen)
-import           Data.Maybe
+import           Data.Either
 import           Data.Version         (showVersion)
 import           Options.Applicative
+import           Parser               (bytes)
 import           Paths_weighted_inits (version)
 import qualified ProgramOptions       as PO
 import           System.Environment   (getArgs)
@@ -22,9 +23,9 @@ main = execParser opts >>= main'
                \by their position")
 
 main' :: Maybe PO.Options -> IO ()
-main' (Just (PO.Options word seed maybeMegaBytes)) =
-  case maybeMegaBytes of
-    Just megaBytes -> putStr $ take (fromIntegral megaBytes * 1048576) weightedInits
+main' (Just (PO.Options word seed maybeSize)) =
+  case maybeSize of
+    Just size -> putStr $ take (fromIntegral $ bytes size) weightedInits
     Nothing -> putStr weightedInits
   where
     g = mkStdGen $ fromIntegral seed

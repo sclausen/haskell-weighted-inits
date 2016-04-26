@@ -8,7 +8,7 @@ import           Options.Applicative
 data Options = Options
   { word      :: String
   , seed      :: Integer
-  , megabytes :: Maybe Integer }
+  , bytes :: Maybe String }
 
 options :: Parser (Maybe Options)
 options = flag' Nothing (long "version" <> hidden) <|> (Just <$> options')
@@ -24,8 +24,8 @@ options = flag' Nothing (long "version" <> hidden) <|> (Just <$> options')
         <> short 's'
         <> metavar "SEED"
         <> help "The seed for the random function" )
-      <*> optional (option auto
-          ( long "megabytes"
-        <> short 'm'
-        <> metavar "MEGABYTES"
-        <> help "Limit the output to MEGABYTES" ))
+      <*> optional (strOption
+          ( long "bytes"
+        <> short 'b'
+        <> metavar "BYTES"
+        <> help "Limit the output to BYTES" ))
