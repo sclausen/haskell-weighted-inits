@@ -20,7 +20,7 @@ $ stack install
     -w,--word WORD           The word to print the inits of
     -s,--seed SEED           The seed for the random function
     -m,--megabytes MEGABYTES Limit the output to MEGABYTES
-    
+
 ## example
 
 following command will create a 1MB file full of seeded random inits of misssissippi.
