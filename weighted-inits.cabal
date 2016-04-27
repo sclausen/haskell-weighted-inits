@@ -1,5 +1,5 @@
 name:                weighted-inits
-version:             0.1.0.0
+version:             0.2.0.0
 synopsis:            generator for weighted inits
 description:         Please see README.md
 homepage:            https://github.com/sclausen/haskell-weighted-inits

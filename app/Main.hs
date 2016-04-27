@@ -3,7 +3,8 @@ module Main where
 import           Control.Monad.Random (mkStdGen)
 import           Data.Either
 import           Data.Version         (showVersion)
-import           Options.Applicative
+import           Options.Applicative  (execParser, fullDesc, header, helper,
+                                       info, progDesc, (<>))
 import           Parser               (bytes)
 import           Paths_weighted_inits (version)
 import qualified ProgramOptions       as PO
